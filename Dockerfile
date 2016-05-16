@@ -43,5 +43,11 @@ RUN cd ~/src/git && \
 # ---- Show installed kernels and python/pip versions:
 RUN jupyter kernelspec list
 
+# ---- Install Docker
+RUN wget -O - http://get.docker.com > get.docker.sh && \
+    chmod +x get.docker.sh && \
+    ./get.docker.sh && \
+    usermod -aG docker main
+
 USER main
 
